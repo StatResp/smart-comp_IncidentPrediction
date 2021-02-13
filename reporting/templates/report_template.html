@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+        <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+        <style>
+            body{ margin:0 100; background:whitesmoke; }
+            table{
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            tr:nth-child(even) {
+              background-color:#dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><u>Regression Summary</u></h1>
+        <p>Auto-generated Report</p>
+        <p>==============================================</p>
+
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Cluster</th>
+                <th>Train Likelihood</th>
+                <th>Test Likelihood</th>
+                <th>Prediction Likelihood</th>
+                <th>Test MSE</th>
+                <th>Prediction MSE</th>
+                <th>Accuracy</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1</th>
+                <th>Threshold</th>
+                <th>AIC</th>
+                <th>Spearman</th>
+                <th>Pearson</th>                
+            <tr>
+            {% for section in sections %}
+                {{ section }}
+            {% endfor %}
+        </table>
+
+        <br>
+
+        <div class="row">
+          <div class="column">
+            {{ chart1 }}
+          </div>
+          <div class="column">
+            {{ chart2 }}
+          </div>
+          <div class="column">
+            {{ chart3 }}
+          </div>
+          <div class="column">
+            {{ chart4 }}
+          </div>
+          <div class="column">
+            {{ chart5 }}
+          </div>		  
+          <div class="column">
+            {{ chart6 }}
+          </div>	          
+          <div class="column">
+            {{ chart7 }}
+          </div>
+          <div class="column">
+            {{ chart8 }}
+          </div>
+          <div class="column">
+            {{ chart9 }}
+          </div>
+          <div class="column">
+            {{ chart10 }}
+          </div> 
+          <div class="column">
+            {{ chart11 }}
+          </div> 
+          <div class="column">
+            {{ chart12 }}
+          </div>           
+          <div class="column">
+            {{ chart13 }}            
+          </div>                             
+        </div>
+
+
+    </body>
+</html>
