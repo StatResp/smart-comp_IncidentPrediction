@@ -71,7 +71,10 @@ def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1 ):
     #Convert to GDF
     df_incident = (gpd.GeoDataFrame(df_incident, geometry=df_incident['geometry'], crs={'init': 'epsg:4326'} ))
     #%%Defining Grid
-    xmin,ymin,xmax,ymax =  df_inrix['geometry'].total_bounds
+    #xmin,ymin,xmax,ymax =  df_inrix['geometry'].total_bounds
+    xmin,ymin,xmax,ymax =[-90.15445012,  34.97582988, -81.72287999,  36.67620991]
+    print('The bounding box is considered to be: ',xmin,ymin,xmax,ymax  )
+    
     rows = int(np.ceil((ymax-ymin) /  height))
     cols = int(np.ceil((xmax-xmin) / width))
     XleftOrigin = xmin

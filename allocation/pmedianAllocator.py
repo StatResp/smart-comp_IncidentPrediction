@@ -107,7 +107,11 @@ class pmedianAllocator():
             total_weight += node_weight
 
         for facility in facilities:
-            penalties[facility] = (assigned_weights[facility] / total_weight) ** alpha
+            if total_weight==0:
+                print ('Warning in P_Median Problem! Total_weight is zero')
+                penalties[facility] =1
+            else:
+                penalties[facility] = (assigned_weights[facility] / total_weight) ** alpha
 
         return penalties
 

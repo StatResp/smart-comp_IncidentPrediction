@@ -13,7 +13,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-import pickle5 as pickle
+#import pickle5 as pickle
 
 #num_resources_list =[10,15,20] #[2, 3]# [10,15,20]
 #alpha_list=[0.0,0.5,1.0,2.0]  #[0,1]#[0.0,0.5,1.0,2.0]
@@ -23,8 +23,8 @@ alpha_list=[0.0,0.5,1.0,2.0]
 
 
 #%% Type 1
-#model_list=['naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2']              #  'Logistic_Regression+No_Resample'#'Logistic_Regression+No_Resample'  #model_i='Naive'
-#NAME='LR'
+model_list=['Naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2']              #  'Logistic_Regression+No_Resample'#'Logistic_Regression+No_Resample'  #model_i='Naive'
+NAME='LR'
 #%% Type 2
 #model_list=['NN+NoR+NoC1', 'NN+RUS+NoC1','NN+ROS+NoC1','NN+NoR+KM2','NN+RUS+KM2','NN+ROS+KM2']  
 #NAME='NN'
@@ -32,14 +32,13 @@ alpha_list=[0.0,0.5,1.0,2.0]
 #model_list=['RF+CW+NoC1', 'RF+NoR+NoC1', 'RF+RUS+NoC1','RF+ROS+NoC1','RF+CW+KM2', 'RF+NoR+KM2', 'RF+RUS+KM2','RF+ROS+KM2']
 #NAME='RF'
 #%% Type 4
-model_list=['Naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2',
-            'NN+NoR+NoC1', 'NN+RUS+NoC1','NN+ROS+NoC1','NN+NoR+KM2','NN+RUS+KM2','NN+ROS+KM2',
-            'RF+CW+NoC1', 'RF+NoR+NoC1', 'RF+RUS+NoC1','RF+ROS+NoC1','RF+CW+KM2', 'RF+NoR+KM2', 'RF+RUS+KM2','RF+ROS+KM2',
-            'ZIP+NoR+NoC1','ZIP+RUS+NoC1','ZIP+ROS+NoC1','ZIP+NoR+KM2','ZIP+RUS+KM2','ZIP+ROS+KM2']
-
+#model_list=['Naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2',
+#           'NN+NoR+NoC1', 'NN+RUS+NoC1','NN+ROS+NoC1','NN+NoR+KM2','NN+RUS+KM2','NN+ROS+KM2',
+#           'RF+CW+NoC1', 'RF+NoR+NoC1', 'RF+RUS+NoC1','RF+ROS+NoC1','RF+CW+KM2', 'RF+NoR+KM2', 'RF+RUS+KM2','RF+ROS+KM2',
+#            'ZIP+NoR+NoC1','ZIP+RUS+NoC1','ZIP+ROS+NoC1','ZIP+NoR+KM2','ZIP+RUS+KM2','ZIP+ROS+KM2']
 #
-#model_list=['NN+NoR+NoC1', 'NN+RUS+NoC1','NN+ROS+NoC1','NN+NoR+KM2','NN+RUS+KM2','NN+ROS+KM2'] 
-NAME='LR+NN+RF+ZIP'
+#NAME='LR+NN+RF+ZIP'
+
 #%% 
 Delay=0.5 #1 #.5
 Speed=100
@@ -72,9 +71,11 @@ DF_metric_allmethod_time=DF_metric_allmethod_time.reset_index().drop('index', ax
 print(DF_metric_allmethod_time)
 DF_metric_allmethod_time.to_pickle('results/Distance_'+NAME+'.pkl')
 print('Done')
+'''
 DF_metric_allmethod_time_Jan=pickle.load(open('results/Distance_LR+NN+RF+ZIP_Jan.pkl', 'rb')) 
 DF_metric_allmethod_time_Dec=pickle.load(open('results/Distance_LR+NN+RF+ZIP_Dec.pkl', 'rb')) 
 DF_metric_allmethod_time=DF_metric_allmethod_time_Jan.append(DF_metric_allmethod_time_Dec)
+'''
 #%% 
 #DF_metric_allmethod_time=pickle.load(open('results/Distance_LR+NN+RF_Jan.pkl', 'rb'))
 #Building the table using the mean of all:
@@ -100,11 +101,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-DF_metric_all
-#sns.set_context('paper')
-
-
-
 
 DF_metric_allmethod_time
 def Box_plot(DF_metric_allmethod_time, y,num_resources ):
@@ -134,9 +130,9 @@ def Box_plot(DF_metric_allmethod_time, y,num_resources ):
     #ax.set_ylim(-220, 1300) 
     #ax.set_ylim(1, 5000)      
 
-Box_plot(DF_metric_allmethod_time[DF_metric_allmethod_time['TotalNumAccidents']>0], 'DistanceTravelPerAccident',10);plt.savefig('DistanceTravelPerAccident_P=10.png')
-Box_plot(DF_metric_allmethod_time[DF_metric_allmethod_time['TotalNumAccidents']>0], 'DistanceTravelPerAccident',15);plt.savefig('DistanceTravelPerAccident_P=15.png')
-Box_plot(DF_metric_allmethod_time[DF_metric_allmethod_time['TotalNumAccidents']>0], 'DistanceTravelPerAccident',20);plt.savefig('DistanceTravelPerAccident_P=20.png')
+Box_plot(DF_metric_allmethod_time[DF_metric_allmethod_time['TotalNumAccidents']>0], 'DistanceTravelPerAccident',10);plt.savefig('results/DistanceTravelPerAccident_P=10.png')
+Box_plot(DF_metric_allmethod_time[DF_metric_allmethod_time['TotalNumAccidents']>0], 'DistanceTravelPerAccident',15);plt.savefig('results/DistanceTravelPerAccident_P=15.png')
+Box_plot(DF_metric_allmethod_time[DF_metric_allmethod_time['TotalNumAccidents']>0], 'DistanceTravelPerAccident',20);plt.savefig('results/DistanceTravelPerAccident_P=20.png')
 
 
 
@@ -176,9 +172,9 @@ fig=sns.lmplot(x='alpha',y='Travel Distance (km)', hue='model_i', data = DF_metr
 #fig.fig.subplots_adjust(wspace=1)
 plt.xlim(-0.25, 2.5)
 axes = fig.axes
-axes[0,0].set_ylim(450,600)   
-axes[0,1].set_ylim(250,400)
-axes[0,2].set_ylim(150,300)
-#plt.ylim(450, 600)
+#axes[0,0].set_ylim(450,600)   
+#axes[0,1].set_ylim(250,400)
+#axes[0,2].set_ylim(150,300)
+##plt.ylim(450, 600)
 #fig.set(ylim=(350, None))
-plt.savefig('alpha.png')
+plt.savefig('results/alpha.png')
