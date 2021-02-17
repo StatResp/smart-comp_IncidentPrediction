@@ -42,7 +42,7 @@ For the sake of illustration, besideds the actual data, different spatio termpor
 3)
 ![LR+ROS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png)
 4)
-![spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png)
+![LR+ROS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png)
 5)
 ![LR+RUS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png)
 6)
