@@ -53,5 +53,5 @@ If the shapefile of the roadway segments are available, the code is capabable of
 ![LR+RUS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/Map_rate_Actual.png)  
 
 
-**Report__testwindow(0).html** summerize **DF_results.pkl** for one test window in a html format.
-![Report](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/Report_LR__testwindow(0).html)
+**Report__testwindow(0).html** summerizes **DF_results.pkl** for one test window in a html format. For example, the figure below, illustrates is a screen shot of the **Report__testwindow(0).html** for window test month of January/2020 for all different logistic regression methods. 
+![Report](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/Report_LR__testwindow(0).png)
