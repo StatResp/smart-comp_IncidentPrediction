@@ -1,6 +1,6 @@
 # KDD_IncidentPrediction
 This repo is created for reproducibility and sharing the codes for the paper, *Learning Incident Prediction Models Over Large Geographical Areas for Emergency Response Systems*, submitted to KDD 2021. Figure below shows the general pipeline designed by authors.
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/pipeline_updated.png" width="400">  
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/pipeline_updated.png" width="800">  
 
 Firstly, we explain the code and its required input and generated output. Since the authors did not have the permission to share the original data, a synthetic dataset based on a sector of the original data is created, which allow the users to run the code and see the outputs. Then, we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation.
 
@@ -33,7 +33,8 @@ For the sake of illustration, besideds the actual data, different spatio termpor
 \* blue pixels show the missing values.  
 
 
-0)  
+0)
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png" width="400">  
 ![Actual Data](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png)  
 1)  
 ![LR+NoR+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png)  
