@@ -28,10 +28,9 @@ The following files are need to run the code.
 ## Results of the Paper
 **results_KDD** includes all the results, tables, and high resolution figures based on which the paper is written. 
 
-For the sake of illustration, besideds the actual data, different spatio termporal predictions for Jan/2020 are shown in the following section based on Logistic regression, different resampling techniques, and with and without resampling. The figure below demonstrates the general lay out of all the figures.
+For the sake of illustration, besideds the actual data, different spatio termporal predictions for Jan/2020 are shown in the following section based on Logistic regression, different resampling techniques, and with and without resampling. The figure below demonstrates the general lay out of all the figures.  
 ![lay_out](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/lay_out.png)  
-
-\*blue pixels show the missing values.  
+\* blue pixels show the missing values.  
 
 
 0)  
