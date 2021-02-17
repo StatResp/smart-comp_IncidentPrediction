@@ -1,7 +1,7 @@
 # KDD_IncidentPrediction
 This repo is created for sharing the codes and data for the paper, Learning Incident Prediction Models Over Large GeographicalAreas for Emergency Response Systems, sumbitted to KDD. Figure below shows the general pipeline designed by authors. 
 
-![pipeline_updated](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures/pipeline_updated.png)
+![pipeline_updated](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/pipeline_updated.png)
 
 We have made the code used in this study publicly available here.   
 
