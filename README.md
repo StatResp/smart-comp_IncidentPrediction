@@ -29,24 +29,24 @@ The following files are need to run the code.
 **results_KDD** includes all the results, tables, and high resolution figures based on which the paper is written. 
 
 For the sake of illustration, besideds the actual data, different spatio termporal predictions for Jan/2020 are shown in the following section based on Logistic regression, different resampling techniques, and with and without resampling. The figure below demonstrates the general lay out of all the figures. 
-![lay_out](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/lay_out.png)
+![lay_out](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/lay_out.png)
 
 
 
 0)
-![Actual Data](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_testwindow(0)_Actual Data.png)
+![Actual Data](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual Data.png)
 1)
-![LR+NoR+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png)
+![LR+NoR+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png)
 2)
-![LR+NoR+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png)
+![LR+NoR+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png)
 3)
-![LR+ROS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png)
+![LR+ROS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png)
 4)
-![LR+ROS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png)
+![LR+ROS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png)
 5)
-![LR+RUS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png)
+![LR+RUS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png)
 6)
-![LR+RUS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png)
+![LR+RUS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png)
 
 
 
