@@ -35,25 +35,12 @@ For the sake of illustration, besideds the actual data, different spatio termpor
 
 0)
 <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png" width="400">  
-![Actual Data](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png)  
-1)  
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png" width="400">  
-![LR+NoR+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png)  
-2)  
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png" width="400">  
-![LR+NoR+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png)  
-3)  
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png" width="400">  
-![LR+ROS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png)   
-4)  
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png" width="400">  
-![LR+ROS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png)  
-5)  
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png" width="400">  
-![LR+RUS+KM2](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png)  
-6)  
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png" width="400">  
-![LR+RUS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png)  
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png" width="400">
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png" width="400">
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png" width="400"> 
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png" width="400">
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png" width="400">
+<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png" width="400">
 
 
 If the shapefile of the roadway segments are available, the code is capabable of generating heatmap for any intended time windows. For the sake of illustration the figure below, depitcs the aggregated accident rate in Jan/2020. Other figures are also available  in **results_KDD\Figures_not_in_Paper** sub folder in html format.
