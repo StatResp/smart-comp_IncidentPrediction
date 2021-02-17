@@ -21,7 +21,7 @@ Firstly, we explain the code and its required input and generated output. Since 
 
 ### Sample Analysis
 
-**anonymous_df.pkl**: The data used in this study is proprietary, but we release a synthesized example dataset (in the **sample/data** folder) to demonstrate the expected data format. The data is formatted as a csv document; each row represents the features and incident counts for a 4 hour time window at a particular road segment. The specific feature names are detailed on the link provided. 
+**anonymous_df.pkl**: The data used in this study is proprietary, but we release a synthesized example dataset (in the **sample/data** folder) to demonstrate the expected data format. The data is formatted as a csv document; each row represents the features and incident counts for a 4-hour time window at a particular road segment. The specific feature names are detailed on the link provided. By Using **anonymous_df.pkl** and **config/params.conf** and running **run_sample.py** the results will be saved in **output** folder. For the sake of reproducibility, the authors ran the model and saved the results in the same folder. The user should be able to reproduce the same results.
 
 
 
