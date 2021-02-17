@@ -14,8 +14,11 @@ The following files are need to run the code.
 **run_allocation_multicore_v2.py**: This script evaluates the models’ impact when integrated with an allocation model. It uses the output from **run\_sample.py** as prediction inputs. Given a set of test incidents, the script performs allocation based on each model’s prediction output **DF_Test\_spacetime.pkl**, and then simulates dispatch to calculate the distance between incidents and their nearest responders. 
 
 
-**Reading_All_DF.py**: If the analyses is done in seperate environment, this script brings all of them together and save them in one file. For example, the analyses for RF, NN, LR, and ZIP can be done in seperate environment. This script combines all **DF_Results.pkl**, **DF_Test_spacetime.pkl**, and **DF_Test_metric.pkl** from various analyses abd builds **DF_Results_LR+NN+RF+ZIP.pkl**, **DF_Test_spacetime_LR+NN+RF+ZIP.pkl**, and **DF_Test_metric_LR+NN+RF+ZIP.pkl**.  
-**Reading_All_Distances.py**: This script collects the output of **run_allocation_multicore_v2.py** and saves them in **Distance.pkl**
+**Reading_All_DF.py**: If the analyses is done in seperate environment, this script brings all of them together and save them in one file. For example, the analyses for RF, NN, LR, and ZIP can be done in seperate environment. This script combines all **DF_Results.pkl**, **DF_Test_spacetime.pkl**, and **DF_Test_metric.pkl** from various analyses abd builds **DF_Results_LR+NN+RF+ZIP.pkl**, **DF_Test_spacetime_LR+NN+RF+ZIP.pkl**, and **DF_Test_metric_LR+NN+RF+ZIP.pkl**.  It also creates **Perfromance.xlsx**, based of which table 2 in the paper is generated. 
+
+
+**Reading_All_Distances.py**: This script collects the output of **run_allocation_multicore_v2.py** and saves them in **Distance.pkl**. This script also creates **AllcationResults.xlsx**, based of which table 3 and figure 7 in the paper are generated. 
+
 
 
 
