@@ -26,7 +26,7 @@ Firstly, we explain the code and its required input and generated output. Since 
 
 
 ## Results of the Paper
-**results_KDD** includes all the results, tables, and high resolution figures based on which the paper is written. Below, also we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation. 
+**results_KDD**: It includes all the results, tables, and high resolution figures based on which the paper is written. Below, also we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation. 
 
 The model is able to predict the chance of accident for each segment in each 4-h time window. Different spatio temporal predictions for Jan/2020 are shown in the following section based on Logistic regression, different resampling techniques, and with and without resampling. For the sake of comparison, the actual accident occurrence is also shown.  
 
@@ -57,5 +57,5 @@ If the shapefile of the roadway segments are available, the code is capabable of
 ![LR+RUS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/Map_rate_Actual.png)  
 
 
-**Report__testwindow(0).html** summerizes **DF_results.pkl** for one test window in a html format. For example, the figure below, illustrates is a screen shot of the **Report__testwindow(0).html** for window test month of January/2020 for all different logistic regression methods. 
+**Report__testwindow(0).html**: It summerizes **DF_results.pkl** for one test window in a html format. For example, the figure below, illustrates is a screen shot of the **Report__testwindow(0).html** for window test month of January/2020 for all different logistic regression methods. 
 ![Report](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/Report_LR__testwindow(0).png)
