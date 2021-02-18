@@ -21,32 +21,34 @@ Firstly, we explain the code and its required input and generated output. Since 
 
 ### Sample Analysis
 
-**anonymous_df.pkl**: The data used in this study is proprietary, but we release a synthesized example dataset (in the **sample/data** folder) to demonstrate the expected data format. The data is formatted as a csv document; each row represents the features and incident counts for a 4-hour time window at a particular road segment. The specific feature names are detailed on the link provided. By Using **anonymous_df.pkl** and **config/params.conf** and running **run_sample.py** the results will be saved in **output** folder. For the sake of reproducibility, the authors ran the model and saved the results in the same folder. The user should be able to reproduce the same results.
+**anonymous_df.pkl**: The data used in this study is proprietary, but we release a synthesized example dataset (in the **sample/data** folder) to demonstrate the expected data format. The data is formatted as a csv document; each row represents the features and incident counts for a 4-hour time window at a particular road segment. The specific feature names are detailed on the link provided. By Using **anonymous_df.pkl** and **config/params.conf** and running **run_sample.py** the results will be saved in **output** folder. For the sake of reproducibility, the authors ran the model and saved the results in the same folder. The user should be able to reproduce the same results. The original data used for the paper can be shared by format request and under specific conditions. 
 
 
 
 ## Results of the Paper
-**results_KDD** includes all the results, tables, and high resolution figures based on which the paper is written. 
+**results_KDD** includes all the results, tables, and high resolution figures based on which the paper is written. Below, also we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation. 
 
-For the sake of illustration, besideds the actual data, different spatio termporal predictions for Jan/2020 are shown in the following section based on Logistic regression, different resampling techniques, and with and without resampling. The figure below demonstrates the general lay out of all the figures.  
+The model is able to predict the chance of accident for each segment in each 4-h time window. Different spatio temporal predictions for Jan/2020 are shown in the following section based on Logistic regression, different resampling techniques, and with and without resampling. For the sake of comparison, the actual accident occurrence is also shown.  
+
+The figure below demonstrates the general lay out of all the figures.  
 ![lay_out](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/lay_out.png)  
-\* blue pixels show the missing values.  
 
 
-0)
+
+Figure below shows the actual distribution of accidents over time and space. x-axis denotes the beggining 4-hour time window and y-axis shows the segments; \* blue pixels defines the missing values.  
 <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png" width="300">  
 
-
+The folowing 6 figures are drawn using different prediction models. 
 <p float="left">
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png" width="300" />
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png" width="300" /> 
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png" width="300" />
+  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png" width="250" />
+  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png" width="250" /> 
+  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png" width="250" />
 </p>
 
 <p float="left">
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png" width="300" />
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png" width="300" /> 
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png" width="300" />
+  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png" width="250" />
+  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png" width="250" /> 
+  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png" width="250" />
 </p>
 
 
