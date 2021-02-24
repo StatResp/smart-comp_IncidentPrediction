@@ -58,7 +58,7 @@ def create_metadata(config):
         'pred_name_Count': ConfigSectionMap(config, "metadata")["pred_name_count"],
         'pred_name_TF': ConfigSectionMap(config, "metadata")["pred_name_tf"],
         'time_zone': ConfigSectionMap(config, "metadata")["time_zone"],
-        'figure_tag':bool(ConfigSectionMap(config, "metadata")["figure_tag"]),
+        'figure_tag':(ConfigSectionMap(config, "metadata")["figure_tag"]=='True'),
         'train_test_type': str(ConfigSectionMap(config, "metadata")["train_test_type"]),
         'train_test_split': float(ConfigSectionMap(config, "metadata")["train_test_split"]),
         'train_verification_split': float(ConfigSectionMap(config, "metadata")["train_verifcation_split"]),
