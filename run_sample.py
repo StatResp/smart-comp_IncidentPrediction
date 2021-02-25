@@ -194,7 +194,10 @@ if __name__ == "__main__":
         DF_Test_spacetime.to_pickle('output/DF_Test_spacetime'+metadata['model_type'][0]+'.pkl') #this includes the prediction probability for all methods and all test windows
         DF_Test_metric_time.to_pickle('output/DF_Test_metric_time'+metadata['model_type'][0]+'.pkl') #this includes the 4 metrics for each time window for all the test windows (the information used to draw figure 1)
         
-        DF_results[DF_results['Window_Number']=='Mean'][['Window_Number','model','train_likelihood','test_likelihood','accuracy','precision','recall','f1','threshold','threshold_all_1','threshold_all_2','spearman_corr','pearson_corr']].to_excel('output/DF_results'+metadata['model_type'][0]+'_Mean-All-Window.xlsx',index=False)
+        try: 
+            DF_results[DF_results['Window_Number']=='Mean'][['Window_Number','model','train_likelihood','test_likelihood','accuracy','precision','recall','f1','threshold','threshold_all_1','threshold_all_2','spearman_corr','pearson_corr']].to_excel('output/DF_results'+metadata['model_type'][0]+'_Mean-All-Window.xlsx',index=False)
+        except:
+            DF_results[DF_results['Window_Number']=='Mean'][['Window_Number','model','train_likelihood','test_likelihood','accuracy','precision','recall','f1','threshold','threshold_all_1','spearman_corr','pearson_corr']].to_excel('output/DF_results'+metadata['model_type'][0]+'_Mean-All-Window.xlsx',index=False)
         
         
 
