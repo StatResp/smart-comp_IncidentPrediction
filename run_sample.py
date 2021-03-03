@@ -128,11 +128,11 @@ if __name__ == "__main__":
         print('\nbeggining:')
         #model_name can be ['Simple_Regression','Poisson_Regression', 'Negative_Binomial_Regression', 'Zero_Inflated_Poisson_Regression'] ['Survival_Regression']
         metadata = read_config("config/params.conf")
-
+        
         #df_, meta = prepare_sample_data_TDOT_auto(metadata)
         df_, meta = prepare_sample_data_TDOT_BigDF(metadata)
         #just to save time, the regressiondf can be saved in advance and be used here
-
+        
         #try: os.remove(metadata['regressiondf_pickle_address']); print("file regressiondf Removed!");
         #except: print("Nothing Found!")
         results = {}
@@ -193,11 +193,9 @@ if __name__ == "__main__":
         DF_results.to_pickle('output/DF_results'+metadata['model_type'][0]+'.pkl')  #This includes the same information as the html file but for all the test windows
         DF_Test_spacetime.to_pickle('output/DF_Test_spacetime'+metadata['model_type'][0]+'.pkl') #this includes the prediction probability for all methods and all test windows
         DF_Test_metric_time.to_pickle('output/DF_Test_metric_time'+metadata['model_type'][0]+'.pkl') #this includes the 4 metrics for each time window for all the test windows (the information used to draw figure 1)
-        
-        try: 
+        try:
             DF_results[DF_results['Window_Number']=='Mean'][['Window_Number','model','train_likelihood','test_likelihood','accuracy','precision','recall','f1','threshold','threshold_all_1','threshold_all_2','spearman_corr','pearson_corr']].to_excel('output/DF_results'+metadata['model_type'][0]+'_Mean-All-Window.xlsx',index=False)
         except:
-            DF_results[DF_results['Window_Number']=='Mean'][['Window_Number','model','train_likelihood','test_likelihood','accuracy','precision','recall','f1','threshold','threshold_all_1','spearman_corr','pearson_corr']].to_excel('output/DF_results'+metadata['model_type'][0]+'_Mean-All-Window.xlsx',index=False)
-        
+            DF_results[DF_results['Window_Number']=='Mean'][['Window_Number','model','train_likelihood','test_likelihood','accuracy','precision','recall','f1','threshold','threshold_all_1','spearman_corr','pearson_corr']].to_excel('output/DF_results'+metadata['model_type'][0]+'_Mean-All-Window.xlsx',index=False)    
         
 

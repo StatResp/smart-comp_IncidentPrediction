@@ -5,7 +5,7 @@ Created on Mon Feb  1 10:51:40 2021
 @author: Sayyed Mohsen Vazirizade
 """
 import time
-#import pickle5 as pickle
+import pickle5 as pickle
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
@@ -13,8 +13,6 @@ import seaborn as sns
 import numpy as np
 import pygeoj
 import pyproj
-import shapely.geometry as sg
-
 from allocation.Griding_TN import MyGrouping_Grid, Distance_Dict_Builder,Distance_Dict_Builder
 from allocation.pmedianAllocator import pmedianAllocator
 from allocation.Allocation import Dispaching_Scoring, Find_Best_Location, Weight_and_Merge, Responders_Location, Graph_Distance_Metric
@@ -41,8 +39,8 @@ def get_allocation(arguments):
     if path.exists('results/ResponderLocation/Responder_Location_@'+model_i+'_'+str(num_resources)+'V'+str(Delay)+'h'+str(Speed)+'S'+str(alpha)+'alpha.json')==True:
         print('Exist')    
     else:
-        for row,row_values  in time_range.iloc[0:186].iteritems(): 
-                if (model_i!='naive') | (df_responders_Exist==False):
+        for row,row_values  in time_range.iloc[0:2186].iteritems(): 
+                if (model_i!='naive') | (df_responders_Exist==False) | (len(time_range)>186):
                     print(row,row_values)
                     weights_dict, DF_Test_space_time_i=Weight_and_Merge(DF_Test_spacetime,All_seg_incident,time_i=row_values,model=model_i)
                     allocator = pmedianAllocator()
@@ -73,7 +71,7 @@ def get_distance(arguments):
     Figure_Tag=False
     with open('results/ResponderLocation/Responder_Location_@'+model_i+'_'+str(num_resources)+'V'+str(Delay)+'h'+str(Speed)+'S'+str(alpha)+'alpha.json') as f:
         All_Responders_GridID = json.load(f)      
-    for row,row_values  in time_range.iloc[0:186].iteritems(): 
+    for row,row_values  in time_range.iloc[0:2186].iteritems(): 
         if (model_i!='Naive') | (df_responders_Exist==False):
             print(row,row_values)
             weights_dict, DF_Test_space_time_i=Weight_and_Merge(DF_Test_spacetime,All_seg_incident,time_i=row_values,model=model_i)
@@ -108,43 +106,38 @@ Delay, Penalty, Window_size_hour
 '''
 
 if __name__ == "__main__":
-    #1) reading the prediction DF
+
     #DF_Test_spacetime=pd.read_pickle('results/DF_Test_spacetime_All.pkl')     #pd.read_pickle('D:/inrix/prediction_engine_20/results/DF_Test_spacetime_AllMethods_None_Alltestwindow.pkl')
-    DF_Test_spacetime=pd.read_pickle('output/DF_Test_spacetimeLR.pkl') 
-    #DF_Test_spacetime=pickle.load(open('results/DF_Test_spacetime_All_Dec.pkl', 'rb')) 
+    DF_Test_spacetime=pickle.load(open('results/DF_Test_spacetime_All.pkl', 'rb')) 
     df_=DF_Test_spacetime[['XDSegID']] #df_=pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/Regression_4h_History_G_top20_NoNA.pkl')
-    
-    #2) reading the group and their segment members
-    #df_grouped =pd.read_pickle('sample_data/data/cleaned/Line/grouped/grouped_3.pkl')#pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/grouped/grouped_3.pkl')
-    df_grouped =pd.read_pickle('sample_data/grouped_3_Synthetic.pkl')#
+    #3)
+    df_grouped =pd.read_pickle('sample_data/data/cleaned/Line/grouped/grouped_3.pkl')#pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/grouped/grouped_3.pkl')
     All_seg_incident=df_grouped[df_grouped['Grouping'].isin(df_['XDSegID'])].reset_index().drop('index',axis=1)
-    
-    #3) reading the group shapefiles
-    #df_inrix=pd.read_pickle('sample_data/data/cleaned/Line/inrix_grouped.pkl')#pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/inrix_grouped.pkl')
-    df_inrix=pd.read_pickle('sample_data/inrix_grouped_Synthetic.pkl')    
-    
-    #4) reading accident DF
-    #df_incident =pd.read_pickle('sample_data/data/cleaned/Line/incident_XDSegID.pkl')#pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/incident_XDSegID.pkl')
-    df_incident =pd.read_pickle('sample_data/incident_XDSegID_Synthetic.pkl')
+    #4)
+    df_inrix=pd.read_pickle('sample_data/data/cleaned/Line/inrix_grouped.pkl')#pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/inrix_grouped.pkl')
+    #5)
+    df_incident =pd.read_pickle('sample_data/data/cleaned/Line/incident_XDSegID.pkl')#pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/incident_XDSegID.pkl')
     df_incident =df_incident.sort_values('time_local')
 
-    #5) Automatically generating of time range 
     time_range=DF_Test_spacetime['time_local'].drop_duplicates().sort_values()
 
-    #%%6) Automatically Griding the map for potential location of responders
+
+    #%%Griding
     possible_facility_locations,demand_nodes,Distant_Dic,All_seg_incident,Grid_center=Find_Best_Location(df_inrix,df_incident,All_seg_incident,width = 0.1,height = 0.1  )
 
-    #%%Here we define hyperparameters we want to evaluate in our model
-    num_resources_list = [10,15,20]# [2, 3]# [10,15,20]
-    alpha_list=[0.0,0.5,1.0,2.0]# [0,1]#[0.0,0.5,1.0,2.0]
-    #model_list= ['Naive','LR+NoR+NoC1'] 
-    model_list=['Naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2']                  
+    #%%Features
+    num_resources_list =[10,15,20] #[2, 3]# [10,15,20]
+    alpha_list=[0.0,0.5,1.0,2.0]  #[0,1]#[0.0,0.5,1.0,2.0]
+    #model_list= ['Naive','LR+NoR+NoC1','RF+CW+NoC1'] 
+    #model_list=['Naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2']                  
     #model_list=['RF+CW+NoC1', 'RF+NoR+NoC1', 'RF+RUS+NoC1','RF+ROS+NoC1','RF+CW+KM2', 'RF+NoR+KM2', 'RF+RUS+KM2','RF+ROS+KM2']
     #model_list=['NN+NoR+NoC1', 'NN+RUS+NoC1','NN+ROS+NoC1','NN+NoR+KM2','NN+RUS+KM2','NN+ROS+KM2'] 
     #All
-    #model_list=['Naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2',
-    #            'RF+CW+NoC1', 'RF+NoR+NoC1', 'RF+RUS+NoC1','RF+ROS+NoC1','RF+CW+KM2', 'RF+NoR+KM2', 'RF+RUS+KM2','RF+ROS+KM2',
-    #            'NN+NoR+NoC1', 'NN+RUS+NoC1','NN+ROS+NoC1','NN+NoR+KM2','NN+RUS+KM2','NN+ROS+KM2']
+    
+    model_list=['Naive','LR+NoR+NoC1', 'LR+RUS+NoC1','LR+ROS+NoC1','LR+NoR+KM2','LR+RUS+KM2','LR+ROS+KM2',
+                'RF+CW+NoC1', 'RF+NoR+NoC1', 'RF+RUS+NoC1','RF+ROS+NoC1','RF+CW+KM2', 'RF+NoR+KM2', 'RF+RUS+KM2','RF+ROS+KM2',
+                'NN+NoR+NoC1', 'NN+RUS+NoC1','NN+ROS+NoC1','NN+NoR+KM2','NN+RUS+KM2','NN+ROS+KM2',
+                'ZIP+NoR+NoC1','ZIP+RUS+NoC1','ZIP+ROS+NoC1','ZIP+NoR+KM2','ZIP+RUS+KM2','ZIP+ROS+KM2']
     
     
     
@@ -153,8 +146,7 @@ if __name__ == "__main__":
     Speed=100
     Penalty=np.nan
     Window_size_hour=4
-    
-    #%%
+
     HyperParams=[]
     row_id=0
     for num_resources in num_resources_list:
@@ -187,13 +179,13 @@ if __name__ == "__main__":
     print('starting experiments')
     start_time = time.time()
     # get_dist_metric_for_allocation(experimental_inputs[0])
-    with Pool(processes=7) as pool:
+    with Pool(processes=35) as pool:
         res_dict = pool.map(get_allocation, experimental_inputs)
 
     print('computation time for allocation: {}'.format(time.time() - start_time))
     print('starting experiments')
     start_time = time.time()
-    with Pool(processes=7) as pool:
+    with Pool(processes=35) as pool:
         res_dict = pool.map(get_distance, experimental_inputs)
 
     # for args in experimental_inputs:
