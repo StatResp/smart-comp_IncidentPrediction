@@ -40,7 +40,7 @@ def get_allocation(arguments):
         print('Exist')    
     else:
         for row,row_values  in time_range.iloc[0:2186].iteritems(): 
-                if (model_i!='naive') | (df_responders_Exist==False) | (len(time_range)>186):
+                if (model_i!='Naive') | (df_responders_Exist==False) | (len(time_range)>186):
                     print(row,row_values)
                     weights_dict, DF_Test_space_time_i=Weight_and_Merge(DF_Test_spacetime,All_seg_incident,time_i=row_values,model=model_i)
                     allocator = pmedianAllocator()
@@ -72,7 +72,7 @@ def get_distance(arguments):
     with open('results/ResponderLocation/Responder_Location_@'+model_i+'_'+str(num_resources)+'V'+str(Delay)+'h'+str(Speed)+'S'+str(alpha)+'alpha.json') as f:
         All_Responders_GridID = json.load(f)      
     for row,row_values  in time_range.iloc[0:2186].iteritems(): 
-        if (model_i!='Naive') | (df_responders_Exist==False):
+        if (model_i!='Naive') | (df_responders_Exist==False) | (len(time_range)>186):
             print(row,row_values)
             weights_dict, DF_Test_space_time_i=Weight_and_Merge(DF_Test_spacetime,All_seg_incident,time_i=row_values,model=model_i)
             Responders_GridID=All_Responders_GridID[str(row)]
