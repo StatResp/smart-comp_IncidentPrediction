@@ -31,8 +31,7 @@ pd.set_option('display.width', 100)
 
 
 
-
-def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='EPSG:4326', Intended_crs='EPSG:4326' ):
+def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1 ):
     
     '''
     This function grids the state TN and returns the number of segments/groups and highway accidents per grid as well as the boundary and center of each grid
@@ -43,8 +42,6 @@ def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='
         includes the inrix segment for all over TN
     df_incident : DF
         inlcudes the accident records for all over TN
-    Source_crs,Intended_crs: Str
-        you can choose between 'EPSG:4326' and 'EPSG:4326'.
 
     Returns
     -------
@@ -57,25 +54,25 @@ def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='
     #%%Preparation
     if df_inrix is None: 
         #Reading the Inrix Data
-        df_inrix=pd.read_pickle('D:/inrix_new/inrix_pipeline/data_main/data/cleaned/Line/inrix_grouped.pkl')
+        df_inrix=pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/inrix_grouped.pkl')
 
     if df_incident is None: 
         #Reading the Incident Data
-        df_incident =pd.read_pickle('D:/inrix_new/inrix_pipeline/data_main/data/cleaned/Line/incident_XDSegID.pkl')
+        df_incident =pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/incident_XDSegID.pkl')
         df_incident=df_incident[df_incident['XDSegID'].notna()]
                 
 
     #Convert to GDF and put the center as the geometry
     df_inrix['line']=df_inrix['geometry']
-    df_inrix = gpd.GeoDataFrame(df_inrix, geometry=df_inrix['line'], crs={'init': Source_crs}).to_crs(Intended_crs)
+    df_inrix = gpd.GeoDataFrame(df_inrix, geometry=df_inrix['line'], crs={'init': 'epsg:4326'})
     df_inrix['center']=df_inrix.centroid
-    df_inrix = gpd.GeoDataFrame(df_inrix, geometry=df_inrix['center'], crs={'init': Intended_crs})
+    df_inrix = gpd.GeoDataFrame(df_inrix, geometry=df_inrix['center'], crs={'init': 'epsg:4326'})
     
     #Convert to GDF
-    df_incident = (gpd.GeoDataFrame(df_incident, geometry=df_incident['geometry'], crs={'init': Source_crs} )).to_crs(Intended_crs)
+    df_incident = (gpd.GeoDataFrame(df_incident, geometry=df_incident['geometry'], crs={'init': 'epsg:4326'} ))
     #%%Defining Grid
-    xmin,ymin,xmax,ymax =  df_inrix['geometry'].total_bounds
-    #xmin,ymin,xmax,ymax =[-90.15445012,  34.97582988, -81.72287999,  36.67620991]
+    #xmin,ymin,xmax,ymax =  df_inrix['geometry'].total_bounds
+    xmin,ymin,xmax,ymax =[-90.15445012,  34.97582988, -81.72287999,  36.67620991]
     print('The bounding box is considered to be: ',xmin,ymin,xmax,ymax  )
     
     rows = int(np.ceil((ymax-ymin) /  height))
@@ -100,7 +97,7 @@ def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='
        XrightOrigin = XrightOrigin + width   
     Grid = pd.DataFrame({'geometry':polygons,'X_id':X_id,'Y_id':Y_id }).reset_index().rename(columns={'index':'Grid_ID'})
     Grid['Boundary']=Grid['geometry']
-    Grid = (gpd.GeoDataFrame(Grid, geometry=Grid['geometry'], crs={'init': Intended_crs} ))
+    Grid = (gpd.GeoDataFrame(Grid, geometry=Grid['geometry'], crs={'init': 'epsg:4326'} ))
     Grid['center']=Grid.centroid
     Grid
     #%%Adding Segment
@@ -116,16 +113,16 @@ def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='
     DF_grouped=DF_grouped.reset_index()
     Grid=pd.merge(Grid,DF_grouped, left_on='Grid_ID', right_on='Grid_ID', how='left' )
     Grid_center=Grid.copy()
-    Grid_center=(gpd.GeoDataFrame(pd.DataFrame(Grid_center), geometry=pd.DataFrame(Grid_center)['center'], crs={'init': Intended_crs} ))
+    Grid_center=(gpd.GeoDataFrame(pd.DataFrame(Grid_center), geometry=pd.DataFrame(Grid_center)['center'], crs={'init': 'epsg:4326'} ))
     #%%Graphing
     sns.set()
-    Fig,ax=plt.subplots(2,1,figsize=[20,10])
+    Fig1,ax=plt.subplots(2,1,figsize=[20,10])
     Fig1=Grid.plot(column=(np.log(1+Grid['Num_of_Seg'])),ax=ax[0],  legend = True); ax[0].set_title('log of segments per gird')
     Fig2=Grid.plot(column=(np.log(1+Grid['Num_of_Inc'])),ax=ax[1],  legend = True); ax[1].set_title('log of accidents per gird') 
     
-    Fig,ax=plt.subplots(2,1,figsize=[20,10])
-    Fig1=Grid.plot(ax=ax[0],  legend = True); ax[0].set_title('Boundary of each grid');#ax[0].set_xlim(-91, -81);ax[0].set_ylim(34.5, 37) 
-    Fig2=Grid_center.plot(ax=ax[1],  legend = True); ax[1].set_title('Center of each grid');#ax[1].set_xlim(-91, -81);ax[1].set_ylim(34.5, 37)      
+    Fig1,ax=plt.subplots(2,1,figsize=[20,10])
+    Fig1=Grid.plot(ax=ax[0],  legend = True); ax[0].set_title('Boundary of each grid');ax[0].set_xlim(-91, -81);ax[0].set_ylim(34.5, 37) 
+    Fig2=Grid_center.plot(ax=ax[1],  legend = True); ax[1].set_title('Center of each grid');ax[1].set_xlim(-91, -81);ax[1].set_ylim(34.5, 37)      
     
     return Grid,Grid_center
 

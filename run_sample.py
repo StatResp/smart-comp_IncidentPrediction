@@ -198,4 +198,3 @@ if __name__ == "__main__":
         except:
             DF_results[DF_results['Window_Number']=='Mean'][['Window_Number','model','train_likelihood','test_likelihood','accuracy','precision','recall','f1','threshold','threshold_all_1','spearman_corr','pearson_corr']].to_excel('output/DF_results'+metadata['model_type'][0]+'_Mean-All-Window.xlsx',index=False)    
         
-

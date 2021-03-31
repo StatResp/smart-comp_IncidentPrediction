@@ -30,9 +30,7 @@ pd.set_option('display.width', 100)
 
 
 
-
-
-def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='EPSG:4326', Intended_crs='EPSG:4326' ):
+def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='epsg:4326', Intended_crs='EPSG:3310' ):
     
     '''
     This function grids the state TN and returns the number of segments/groups and highway accidents per grid as well as the boundary and center of each grid
@@ -43,8 +41,6 @@ def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='
         includes the inrix segment for all over TN
     df_incident : DF
         inlcudes the accident records for all over TN
-    Source_crs,Intended_crs: Str
-        you can choose between 'EPSG:4326' and 'EPSG:4326'.
 
     Returns
     -------
@@ -124,79 +120,10 @@ def MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1, Source_crs='
     Fig2=Grid.plot(column=(np.log(1+Grid['Num_of_Inc'])),ax=ax[1],  legend = True); ax[1].set_title('log of accidents per gird') 
     
     Fig,ax=plt.subplots(2,1,figsize=[20,10])
-    Fig1=Grid.plot(ax=ax[0],  legend = True); ax[0].set_title('Boundary of each grid');#ax[0].set_xlim(-91, -81);ax[0].set_ylim(34.5, 37) 
-    Fig2=Grid_center.plot(ax=ax[1],  legend = True); ax[1].set_title('Center of each grid');#ax[1].set_xlim(-91, -81);ax[1].set_ylim(34.5, 37)      
+    Fig1=Grid.plot(ax=ax[0],  legend = True); #ax[0].set_title('Boundary of each grid');#ax[0].set_xlim(-91, -81);ax[0].set_ylim(34.5, 37) 
+    Fig2=Grid_center.plot(ax=ax[1],  legend = True); #ax[1].set_title('Center of each grid');#ax[1].set_xlim(-91, -81);ax[1].set_ylim(34.5, 37)      
     
     return Grid,Grid_center
-
-
-
-
-
-def Distance_Dict_Builder(All_seg_incident,Grid_center):
-    '''
-    This function builds a dictionary that contains the the distance between the intented segments/groups and Grids
-
-    Parameters
-    ----------
-    All_seg_incident : DF
-        This includes the segments/groups and their geometries, that we want to find their distances to the center of grids .
-    Grid_center : GDF
-        This is a GDF that for the grids and the geometry is the center of the grid .
-
-    Returns
-    -------
-    Distant_Dic: Dictionary 
-        DESCRIPTION.
-    All_seg_incident: GDF
-        DESCRIPTION.
-
-    '''
-
-    #%%
-
-    if All_seg_incident is None: 
-        df_grouped =pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/grouped/grouped_3.pkl')
-        df_=pd.read_pickle('D:/inrix_new/data_main/data/cleaned/Line/Regression_4h_History_G_top20_NoNA.pkl')
-        All_seg_incident=df_grouped[df_grouped['Grouping'].isin(df_['XDSegID'])].reset_index().drop('index',axis=1)  #just selecting the groups/segment with at least one accident
-             
-    #%%    
-    All_seg_incident['line']=All_seg_incident['geometry']
-    All_seg_incident_4326=gpd.GeoDataFrame(All_seg_incident, geometry=All_seg_incident['line'], crs={'init': 'epsg:4326'} )
-    All_seg_incident_4326['center']=All_seg_incident_4326.centroid
-    All_seg_incident_4326=gpd.GeoDataFrame(All_seg_incident_4326, geometry=All_seg_incident_4326['center'], crs={'init': 'epsg:4326'} )
-    
-    
-    '''
-    def Center_Finder(row):
-        #This function finds the the center of the line which connects the beggining and the end
-        try:
-            Beg=row['geometry'].coords[0]
-            End=row['geometry'].coords[-1]
-        except: 
-            Beg=row['geometry'][0].coords[0]
-            End=row['geometry'][-1].coords[-1]    
-            
-        return Point((Beg[0]+End[0])/2, (Beg[1]+End[1])/2)       
-    
-    All_seg_incident['line']=All_seg_incident['geometry']
-    All_seg_incident['center']=All_seg_incident.apply(lambda row: Center_Finder(row),axis=1)
-    All_seg_incident_4326=gpd.GeoDataFrame(All_seg_incident, geometry=All_seg_incident['center'], crs={'init': 'epsg:4326'} )
-    '''
- 
-    All_seg_incident_3310=All_seg_incident_4326.to_crs('EPSG:3310')
-    Grid_center_3310=Grid_center.to_crs('EPSG:3310')
-    
-    #%%
-    Distant_Dic={}
-    for i,row_i in All_seg_incident_3310.iterrows():
-        Distant_Dic[row_i.Grouping]={}
-        for j,row_j in Grid_center_3310.iterrows(): 
-            Distant_Dic[row_i.Grouping][row_j.Grid_ID]=row_i['geometry'].distance(row_j['geometry'])/1000
-    
-    
-    return Distant_Dic,All_seg_incident
-
 
 
 

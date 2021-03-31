@@ -12,35 +12,19 @@ import matplotlib.pyplot as plt
 import pygeoj
 import pyproj
 from allocation.Griding_TN import MyGrouping_Grid, Distance_Dict_Builder
-#from allocation.Griding_TN_Test import MyGrouping_Grid
-
-
 
 
 df_inrix=None
 df_incident=None
-#Grid, Grid_center=MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1 )
-#df_inrix=pd.read_pickle('D:/inrix_new/inrix_pipeline/data_main/data/cleaned/Line/inrix_grouped.pkl')
-
-Grid, Grid_center=MyGrouping_Grid(df_inrix,df_incident ,width = 10000,height = 10000, Source_crs='epsg:4326', Intended_crs='EPSG:3310' )
-Grid, Grid_center=MyGrouping_Grid(df_inrix,df_incident ,width = 10000,height = 10000, Source_crs='epsg:4326', Intended_crs='EPSG:2163' )
+Grid, Grid_center=MyGrouping_Grid(df_inrix,df_incident ,width = 0.1,height = 0.1 )
 
 
-
-x
 
 #Just for test
 Grid_3310 =Grid_center.to_crs('EPSG:3310')
 Grid_3310['center_3310']=Grid_3310.centroid
 Grid_3310['area']=Grid.to_crs('EPSG:3310').area/1e6
 
-
-'''
-#Just for test
-Grid_3310 =Grid_center.to_crs('EPSG:3310')
-Grid_3310['center_3310']=Grid_3310.centroid
-Grid_3310['area']=Grid.to_crs('EPSG:3310').area/1e6
-'''
 
 
 
