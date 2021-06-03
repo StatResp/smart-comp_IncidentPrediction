@@ -1,7 +1,7 @@
 # smart-comp_IncidentPrediction
 This repo is created for reproducibility and sharing the codes used for the paper, *Learning Incident Prediction Models Over Large Geographical Areas for Emergency Response Systems*, submitted to The 7th IEEE International Conference on Smart Computing (SMARTCOMP 2021).   
 Figure below shows the general pipeline designed by authors.
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/pipeline_updated.png" width="800">  
+<img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_in_Paper/pipeline_updated.png" width="800">  
 
 Firstly, we explain the code and its required input and generated output. Since the authors did not have the permission to share the original data, a synthetic dataset based on a sector of the original data is created, which allow the users to run the code and see the output. Then, we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation.
 
@@ -29,23 +29,23 @@ Firstly, we explain the code and its required input and generated output. Since 
 
 
 ## Results of the Paper
-**results_KDD**: It includes all the results, tables, and high resolution figures based on which the paper is written. Below, also we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation. 
+**results_smart-comp**: It includes all the results, tables, and high resolution figures based on which the paper is written. Below, also we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation. 
 
 The model is able to predict the chance of accident for each segment in each 4-h time window. Different spatio temporal predictions for Jan/2020 are shown in the following section based on Logistic regression, different resampling techniques, and with and without resampling. For the sake of comparison, the actual accident occurrence is also shown.  
 
 The figure below demonstrates the general lay out of all the figures.  
-![lay_out](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/lay_out.png)  
+![lay_out](https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/lay_out.png)  
 
 
 
 Figure below shows the actual distribution of accidents over time and space. x-axis denotes the beggining 4-hour time window and y-axis shows the segments; \* blue pixels defines the missing values.  
-<img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png" width="300">  
+<img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png" width="300">  
 
 The folowing 6 figures are drawn using different prediction models. 
 <p float="left">
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png" width="250" />
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png" width="250" /> 
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png" width="250" />
+  <img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/spatial_temporal_LR+NoR+NoC1_testwindow(0)_Prediction.png" width="250" />
+  <img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/spatial_temporal_LR+RUS+NoC1_testwindow(0)_Prediction.png" width="250" /> 
+  <img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/spatial_temporal_LR+ROS+NoC1_testwindow(0)_Prediction.png" width="250" />
 </p>
 
 <p float="left">
