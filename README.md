@@ -1,5 +1,6 @@
-# KDD_IncidentPrediction
-This repo is created for reproducibility and sharing the codes used for the paper, *Learning Incident Prediction Models Over Large Geographical Areas for Emergency Response Systems*, submitted to KDD 2021. Figure below shows the general pipeline designed by authors.
+# smart-comp_IncidentPrediction
+This repo is created for reproducibility and sharing the codes used for the paper, *Learning Incident Prediction Models Over Large Geographical Areas for Emergency Response Systems*, submitted to The 7th IEEE International Conference on Smart Computing (SMARTCOMP 2021).   
+Figure below shows the general pipeline designed by authors.
 <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_in_Paper/pipeline_updated.png" width="800">  
 
 Firstly, we explain the code and its required input and generated output. Since the authors did not have the permission to share the original data, a synthetic dataset based on a sector of the original data is created, which allow the users to run the code and see the output. Then, we show some abilities of the pipeline, which are not mentioned in the paper due to space limitation.
