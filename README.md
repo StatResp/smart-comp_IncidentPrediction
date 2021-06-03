@@ -39,7 +39,7 @@ The figure below demonstrates the general lay out of all the figures.
 
 
 Figure below shows the actual distribution of accidents over time and space. x-axis denotes the beggining 4-hour time window and y-axis shows the segments; \* blue pixels defines the missing values.  
-<img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png" width="300">  
+<img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/spatial_temporal_testwindow(0)_Actual%20Data.png" width="300">  
 
 The folowing 6 figures are drawn using different prediction models. 
 <p float="left">
@@ -49,16 +49,16 @@ The folowing 6 figures are drawn using different prediction models.
 </p>
 
 <p float="left">
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png" width="250" />
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png" width="250" /> 
-  <img src="https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png" width="250" />
+  <img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/spatial_temporal_LR+NoR+KM2_testwindow(0)_Prediction.png" width="250" />
+  <img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/spatial_temporal_LR+RUS+KM2_testwindow(0)_Prediction.png" width="250" /> 
+  <img src="https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/spatial_temporal_LR+ROS+KM2_testwindow(0)_Prediction.png" width="250" />
 </p>
 
 
 
-If the shapefile of the roadway segments are available, the code is capabable of generating heatmap for any intended time windows. For the sake of illustration the figure below, depitcs the aggregated accident rate in Jan/2020. Other figures are also available  in **results_KDD\Figures_not_in_Paper** sub folder in html format.
-![LR+RUS+NoC1](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/Map_rate_Actual.png)  
+If the shapefile of the roadway segments are available, the code is capabable of generating heatmap for any intended time windows. For the sake of illustration the figure below, depitcs the aggregated accident rate in Jan/2020. Other figures are also available  in **results_smart-comp\Figures_not_in_Paper** sub folder in html format.
+![LR+RUS+NoC1](https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/Map_rate_Actual.png)  
 
 
 **Report__testwindow(0).html**: It summerizes **DF_results.pkl** for one test window in a html format. For example, the figure below, illustrates is a screen shot of the **Report__testwindow(0).html** for window test month of January/2020 for all different logistic regression methods. 
-![Report](https://github.com/StatResp/KDD_IncidentPrediction/blob/main/results_KDD/Figures_not_in_Paper/Report_LR__testwindow(0).png)
+![Report](https://github.com/StatResp/smart-comp_IncidentPrediction/blob/main/results_smart-comp/Figures_not_in_Paper/Report_LR__testwindow(0).png)
